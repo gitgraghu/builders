@@ -20,7 +20,7 @@ var ProjectSchema = new Schema({
     numtwoBHK: {type:Number, default: 0},
     threeBHK: {type: Boolean, default: false},
     numthreeBHK: {type:Number, default: 0},
-    fourBHK: {type: Boolean, default: false}
+    fourBHK: {type: Boolean, default: false},
     numfourBHK: {type:Number, default:0}
 })
 

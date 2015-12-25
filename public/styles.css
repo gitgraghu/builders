@@ -1,3 +1,137 @@
 html{
     overflow-y: scroll;
 }
+
+body {
+    padding-top: 50px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+
+.navbar .navbar-brand, .navbar-nav>li>a{
+    color: #fff !important;
+    font-weight: bold;
+}
+
+.navbar-inverse {
+    background-color: #1561A3;
+    border-color: #337AB7;
+}
+.spacer {
+    margin-top: 25px;
+}
+
+.feature {
+    margin-bottom: 30px;
+}
+
+.checkbox {
+    padding-top: 0px !important;
+}
+
+.jumbotron {
+    margin-bottom: 10px;
+    padding-bottom:20px;
+    padding-top:30px;
+}
+
+#wrapper {
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled {
+    padding-left: 580px;
+}
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 580px;
+    width: 0;
+    height: 100%;
+    margin-left: -585px;
+    overflow-y: auto;
+    background: #000;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    border: solid #2e6da4;
+    border-width: 0 5px 0 0;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    width: 580px;
+}
+
+#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+    padding: 15px;
+}
+
+#wrapper.toggled #page-content-wrapper {
+    position: absolute;
+    margin-right: -580px;
+}
+
+@media(min-width:768px) {
+    #wrapper {
+        padding-left: 580px;
+    }
+
+    #wrapper.toggled {
+        padding-left: 0;
+    }
+
+    #sidebar-wrapper {
+        width: 580px;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        width: 0;
+    }
+
+    #page-content-wrapper {
+        padding: 20px;
+        position: relative;
+    }
+
+    #wrapper.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
+    }
+}
+
+#map { height: 100%; }
+
+
+#arrowsWrap{
+    margin-left: -0.5%;
+    position: absolute;
+    z-index: 1;
+    margin-top: 6%;
+}
+
+.ng-enter {
+  -webkit-transition: 1s;
+    transition: 1s;
+  opacity: 0;
+  }
+
+  .ng-enter-active {
+    opacity: 1;
+}
+
+#sidebar-pull{
+    position:absolute;
+    color:white;
+    font-weight:bold;
+    border:solid 2px;
+    border-radius:2px;
+    border-color:white;
+    left:93%;
+    top:45%;
+}

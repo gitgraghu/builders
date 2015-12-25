@@ -21,10 +21,90 @@
         <link rel="stylesheet" href="styles.css" />
     </head>
 
-    <body>
+    <body ng-app="BuilderApp" ng-cloak ng-controller="BuilderCtrl">
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-home"></span></a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div id="wrapper" class="toggled">
+        <div id="sidebar-wrapper">
+            <div class="container" id="map"> </div>
+            <div id="sidebar-pull"><a href="#menu-toggle" class="btn btn-success menu-toggle"><span class="glyphicon glyphicon-globe"></span></a></div>
+        </div>
+        <div id="content-wrapper">
+            <div class="container-fluid">
+                <header class="jumbotron spacer">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                        <div class="col-xs-3"><input type="text" ng-model="builderquery" class="form-control" id="builderinput" placeholder="Builder"></div>
+                        <div class="col-xs-3"><input type="text" ng-model="projectquery" class="form-control" id="projectinput" placeholder="Project"></div>
+                        <div class="col-xs-1"><input type="text" ng-model="sqft1query" class="form-control" id="sqftinput1"></div>
+                        <div class="col-xs-1"><input type="text" ng-model="sqft2query" class="form-control" id="sqftinput2"></div>
+                        <div class="col-xs-2 checkbox">
+                            <label><input ng-model="oneBHKquery" type="checkbox">1 BHK</label>
+                            <label><input ng-model="twoBHKquery" type="checkbox">2 BHK</label>
+                            <label><input ng-model="threeBHKquery" type="checkbox">3 BHK</label>
+                            <label><input ng-model="fourBHKquery"  type="checkbox">4 BHK</label>
+                        </div>
+                        <a href="#menu-toggle" class="btn btn-info menu-toggle"><span class="glyphicon glyphicon-map-marker"></span></a>
+                        <button ng-click="findProjects()" type="submit" class="btn btn-primary" title=""><span class="glyphicon glyphicon-search"></span></button>
+                        <a class="btn btn-default" ng-click="resetForm()"><span class="glyphicon glyphicon-refresh"></span></a>
+                        </div>
+                    </form>
+                </header>
+                <hr>
+            </div>
+            <div class="row" ng-hide="allprojects.length == 0">
+                <div class="row">
+                    <div class="col-sm-12" id="arrowsWrap">
+                        <div class="col-sm-1"><button ng-click="qstart==0 || updateqstart(-4)" class="btn btn-default" title=""><span class="glyphicon glyphicon-chevron-left"></span></button></div>
+                        <div class="col-sm-10"></div>
+                        <div class="col-sm-1" style="text-align:right"><button ng-click="qstart + 4 >= allprojects.length || updateqstart(4)" class="btn btn-default" title=""><span class="glyphicon glyphicon-chevron-right"></span></button></div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 feature" ng-repeat="project in allprojects | limitTo:4:qstart">
+                    <div class="thumbnail"><img src="http://cfi-tp.co.in/uploads/gallery/f646ecb6250be2921bfd0d8c22fa6302.jpg"></div>
+                    <div class="caption">
+                        <h4>{{project.name}}</h4>
+                        <p>{{project.type}}</p>
+                        <p>{{project.status}}</p>
+                        <p>{{project.builder}}</p>
+                        <p><a href="#" class="btn btn-primary">Buy Now</a><a href="#" class="btn btn-default">More info</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
         <script src="http://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>
         <script src="/bower_components/angular/angular.min.js"></script>
         <script src="/bower_components/angular-animate/angular-animate.min.js"></script>
+        <script src="app.js"></script>
+        <script>
+
+        $(".menu-toggle").click(function(e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+
+        </script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjfi09z3stDJHwLdEaBIfKSEGhZeJ-Mr4"></script>
     </body>
 
