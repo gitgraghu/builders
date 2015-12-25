@@ -28,5 +28,7 @@ router.get('/', function(req, res){
        res.sendfile('./public/index.html');
 });
 
+var Project = require('./models/project')
+
 app.use('/', router);
 app.listen(port);
