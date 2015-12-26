@@ -66,13 +66,13 @@ body {
     width: 580px;
 }
 
-#page-content-wrapper {
+#content-wrapper {
     width: 100%;
     position: absolute;
     padding: 15px;
 }
 
-#wrapper.toggled #page-content-wrapper {
+#wrapper.toggled #content-wrapper {
     position: absolute;
     margin-right: -580px;
 }
@@ -94,12 +94,12 @@ body {
         width: 0;
     }
 
-    #page-content-wrapper {
+    #content-wrapper {
         padding: 20px;
         position: relative;
     }
 
-    #wrapper.toggled #page-content-wrapper {
+    #wrapper.toggled #content-wrapper {
         position: relative;
         margin-right: 0;
     }

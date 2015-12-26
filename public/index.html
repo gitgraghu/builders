@@ -80,13 +80,15 @@
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6 feature" ng-repeat="project in allprojects | limitTo:4:qstart">
-                    <div class="thumbnail"><img src="http://cfi-tp.co.in/uploads/gallery/f646ecb6250be2921bfd0d8c22fa6302.jpg"></div>
+                    <div class="thumbnail"><img src="http://cfi-tp.co.in/uploads/gallery/f646ecb6250be2921bfd0d8c22fa6302.jpg">
                     <div class="caption">
                         <h4>{{project.name}}</h4>
                         <p>{{project.type}}</p>
-                        <p>{{project.status}}</p>
                         <p>{{project.builder}}</p>
+                        <p>{{project.status}}</p>
+                        <p>{{project.area}}</p>
                         <p><a href="#" class="btn btn-primary">Buy Now</a><a href="#" class="btn btn-default">More info</a></p>
+                    </div>
                     </div>
                 </div>
             </div>
