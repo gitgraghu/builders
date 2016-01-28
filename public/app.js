@@ -10,8 +10,8 @@ app.factory('gservice', function($rootScope, $http){
         var googleMapService = {};
         var locations = [];
         var qstart = 0;
-        var selectedLat  = 8.5247409;
-        var selectedLong = 76.997626;
+        var selectedLat  = 8.547409;
+        var selectedLong = 77.057626;
 
         var convertToMapPoints = function(projects){
             var locations = [];
@@ -42,7 +42,7 @@ app.factory('gservice', function($rootScope, $http){
             var myLatLng = {lat: selectedLat, lng: selectedLong};
             if(!map){
                   var map = new google.maps.Map(document.getElementById('map'),{
-                      zoom: 13,
+                      zoom: 12,
                       center: myLatLng
                   });
             }
@@ -66,7 +66,7 @@ app.factory('gservice', function($rootScope, $http){
                fillOpacity: 0.35,
                map: map,
                center: myLatLng,
-               radius: 5000,
+               radius: 1000,
                editable: true
              });
         cityCircle.setMap(map);
@@ -116,6 +116,8 @@ app.controller('BuilderCtrl', ['$scope', 'APP', 'gservice', function($scope, APP
                         'project': $scope.projectquery,
                         'sqft1': $scope.sqft1query,
                         'sqft2': $scope.sqft2query,
+                        'minbudget': $scope.budgetminquery,
+                        'maxbudget': $scope.budgetmaxquery,
                         'oneBHK': $scope.oneBHKquery,
                         'twoBHK': $scope.twoBHKquery,
                         'threeBHK': $scope.threeBHKquery,

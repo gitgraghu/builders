@@ -2,27 +2,21 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var ProjectSchema = new Schema({
-    name:   String,
-    builder:String,
-    type:   String,
-    status: String,
-    area:   String,
+    name:           String,
+    builder:        String,
+    type:           String,
+    status:         String,
+    area:           String,
+    sqft:           Number,
+    cost:           Number,
     completionyear: Number,
-    numfloors: Number,
-    numunits: Number,
-    cost: Number,
-    location: {type: [Number]},
-    sqft1: Number,
-    sqft2: Number,
-    oneBHK: {type: Boolean, default: false},
-    numoneBHK: {type:Number, default: 0},
-    twoBHK: {type: Boolean, default: false},
-    numtwoBHK: {type:Number, default: 0},
-    threeBHK: {type: Boolean, default: false},
-    numthreeBHK: {type:Number, default: 0},
-    fourBHK: {type: Boolean, default: false},
-    numfourBHK: {type:Number, default:0}
-})
+    totalunits:     Number,
+    numfloors:      Number,
+    numunits:       Number,
+    location:      [Number],
+    BHK:            Number,
+    totalcost:      Number
+});
 
 ProjectSchema.index({location: '2dsphere'});
 

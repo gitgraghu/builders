@@ -57,6 +57,8 @@
                         <div class="col-xs-3"><input type="text" ng-model="projectquery" class="form-control" id="projectinput" placeholder="Project"></div>
                         <div class="col-xs-1"><input type="text" ng-model="sqft1query" class="form-control" id="sqftinput1"></div>
                         <div class="col-xs-1"><input type="text" ng-model="sqft2query" class="form-control" id="sqftinput2"></div>
+                        <div class="col-xs-1"><input type="text" ng-model="budgetminquery" class="form-control" id="budgetinput1"></div>
+                        <div class="col-xs-1"><input type="text" ng-model="budgetmaxquery" class="form-control" id="budgetinput2"></div>
                         <div class="col-xs-2 checkbox">
                             <label><input ng-model="oneBHKquery" type="checkbox">1 BHK</label>
                             <label><input ng-model="twoBHKquery" type="checkbox">2 BHK</label>
@@ -70,7 +72,6 @@
                     </form>
                 </header>
                 <hr>
-            </div>
             <div class="row" ng-hide="allprojects.length == 0">
                 <div class="row">
                     <div class="col-sm-12" id="arrowsWrap">
@@ -83,7 +84,7 @@
                     <div class="thumbnail"><img src="http://cfi-tp.co.in/uploads/gallery/f646ecb6250be2921bfd0d8c22fa6302.jpg">
                     <div class="caption">
                         <h4>{{project.name}}</h4>
-                        <p>{{project.type}}</p>
+                        <p>{{project.type}} - {{project.BHK}} BHK</p>
                         <p>{{project.builder}}</p>
                         <p>{{project.status}}</p>
                         <p>{{project.area}}</p>
@@ -92,6 +93,7 @@
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </div>
 
