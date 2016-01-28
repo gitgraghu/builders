@@ -44,6 +44,83 @@
     </nav>
 
     <div id="wrapper" class="toggled">
+            <div id="editprojectmenu" class="card">
+                <h4>Edit Project: {{currentproject.name}}</h4>
+                <hr />
+                <form>
+                    <div class="form-group row">
+                        <label for="projnameinput" class="col-sm-1 form-control-label">Name</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" id="projnameinput" ng-model="currentproject.name">
+                        </div>
+
+                        <label for="builderinput" class="col-sm-1 form-control-label">Builder</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" id="builderinput" ng-model="currentproject.builder">
+                        </div>
+
+                        <div class="col-sm-3">
+                            <select class="form-control" id="typeinput" ng-model="currentproject.type">
+                                <option>Apartment</option>
+                                <option>Villa</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="areainput" class="col-sm-1 form-control-label">Area</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" id="areainput" ng-model="currentproject.area">
+                        </div>
+
+                        <label for="BHKinput" class="col-sm-1 form-control-label">BHK</label>
+                        <div class="col-sm-2">
+                            <select class="form-control" type="number" id="BHKinput" ng-model="currentproject.BHK">
+                                <option ng-selected="currentproject.BHK == 1">1</option>
+                                <option ng-selected="currentproject.BHK == 2">2</option>
+                                <option ng-selected="currentproject.BHK == 3">3</option>
+                                <option ng-selected="currentproject.BHK == 4">4</option>
+                            </select>
+                        </div>
+
+                        <label for="statusinput" class="col-sm-1 form-control-label">Status</label>
+                        <div class="col-sm-2">
+                            <select class="form-control" id="statusinput" ng-model="currentproject.status">
+                                <option>Ongoing</option>
+                                <option>Completed</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="sqftinput" class="col-sm-1 form-control-label">Square Feet</label>
+                        <div class="col-sm-2">
+                            <input type="number" class="form-control" id="sqftinput" ng-model="currentproject.sqft">
+                        </div>
+
+                        <label for="costinput" class="col-sm-1 form-control-label">Cost</label>
+                        <div class="col-sm-2">
+                            <input type="number" class="form-control" id="costinput" ng-model="currentproject.cost">
+                        </div>
+
+                        <label for="completionyrinput" class="col-sm-2 form-control-label">Completion Year</label>
+                        <div class="col-sm-2">
+                            <input id="completionyrinput" type="number" class="input-sm form-control" ng-model="currentproject.completionyear" />
+                        </div>
+                    </div>
+
+                    <!-- <fieldset class="form&#45;group"> -->
+                    <!--     <label for="">Completion Year</label> -->
+                    <!--     <input type="text" class="input&#45;sm form&#45;control" ng&#45;model="currentproject.completionyear" /> -->
+                    <!-- </fieldset> -->
+                <!-- Total Units: <input type="text" class="input&#45;sm form&#45;control" ng&#45;model="currentproject.totalunits" /> -->
+                <!-- Num Floors: <input type="text" class="input&#45;sm form&#45;control" ng&#45;model="currentproject.numfloors" /> -->
+                <!-- Num Units: <input type="text" class="input&#45;sm form&#45;control" ng&#45;model="currentproject.numunits" /> -->
+                <hr />
+                <button type="submit" class="btn btn-primary" ng-click="onsaveeditProject()">Save</button>
+                <button type="submit" class="btn" ng-click="oncanceleditProject()">Cancel</button>
+                </form>
+            </div>
         <div id="sidebar-wrapper">
             <div class="container" id="map"> </div>
             <div id="sidebar-pull"><a href="#menu-toggle" class="btn btn-success menu-toggle"><span class="glyphicon glyphicon-globe"></span></a></div>
@@ -83,7 +160,7 @@
                 <div class="col-md-3 col-sm-6 feature" ng-repeat="project in allprojects | limitTo:4:qstart">
                     <div class="thumbnail"><img src="http://cfi-tp.co.in/uploads/gallery/f646ecb6250be2921bfd0d8c22fa6302.jpg">
                     <div class="caption">
-                        <h4>{{project.name}}</h4>
+                        <h4>{{project.name}}</h4> <span ng-click="editProject(project)" class="glyphicon glyphicon-edit pull-right" aria-hidden="true"></span>
                         <p>{{project.type}} - {{project.BHK}} BHK</p>
                         <p>{{project.builder}}</p>
                         <p>{{project.status}}</p>

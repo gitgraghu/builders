@@ -110,6 +110,19 @@ app.controller('BuilderCtrl', ['$scope', 'APP', 'gservice', function($scope, APP
         $scope.sqft2query = '';
     };
 
+    $scope.editProject = function(project){
+        $scope.currentproject = project;
+        $("#editprojectmenu").show();
+    }
+
+    $scope.oncanceleditProject = function(){
+        $("#editprojectmenu").hide();
+    }
+
+    $scope.onsaveeditProject = function(){
+        $("#editprojectmenu").hide();
+    }
+
     $scope.findProjects = function(){
         var url = APP.API + "projects";
         var payload = { 'builder': $scope.builderquery,

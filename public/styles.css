@@ -135,3 +135,25 @@ body {
     left:93%;
     top:45%;
 }
+
+#editprojectmenu {
+    position: fixed;
+    z-index: 2500;
+    left:20%;
+    top: 5%;
+    background-color:white;
+    display:none;
+    width:65%;
+    padding:30px;
+    padding-top:10px;
+}
+
+.card{
+    padding-top:10px;
+    margin-top:30px;
+    background-color: #fff;
+    border-radius: 2px;
+    -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.18),0 2px 10px 0 rgba(0,0,0,0.18);
+    -moz-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.18),0 2px 10px 0 rgba(0,0,0,0.18);
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.18),0 2px 10px 0 rgba(0,0,0,0.18);
+}
